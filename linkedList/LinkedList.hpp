@@ -40,14 +40,14 @@ template <typename T>
 bool LinkedList<T>::search(T value) const  	// performs search for a value 
 {
 	Node<T>* temp = m_front;
-	bool isFound = false;
+	bool isFound = 0;
 
-	while( temp != nullptr)
+	while(temp != nullptr)
 	{
-		if( temp->getValue() == value)
+		if(temp->getValue() == value)  // means value was found on list
 			{
-				isFound = true;
-				break;
+				isFound = 1;
+				break;		// breaks out of loop since value was found
 			}
 		temp = temp->getNext();	
 	}
@@ -110,7 +110,7 @@ bool LinkedList<T>::removeBack()        // removes item from back of list
 	Node<T>* lastNode = nullptr;
 	Node<T>* secondintoLast = nullptr;
 	if(m_size == 0)
-		return isRemoved;		
+		return isRemoved;		// list is empty therefore item cannot be removed
 
 	else 	{	
 			lastNode = m_front;
@@ -123,7 +123,7 @@ bool LinkedList<T>::removeBack()        // removes item from back of list
 			delete lastNode;
 			secondintoLast->setNext(nullptr);
 			isRemoved = 1;
-			m_size--;
+			m_size--;  // decrease size of list by 1
 		}
 
 	return(isRemoved);	
